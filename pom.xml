@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eviltester.com</groupId>
+    <artifactId>startUsingSelenium4</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- add junit -->
+        <junit.jupiter.version>5.6.2</junit.jupiter.version>
+
+        <!-- configure the compiler via properties rather than plugin -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <!-- to generate html junit reports for test phase -->
+        <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+        <maven.surefire.report.version>3.0.0-M4</maven.surefire.report.version>
+
+        <!-- configure webdriver version -->
+        <selenium-webdriver-version>4.10.0</selenium-webdriver-version>
+        <webdriver-manager-version>5.4.1</webdriver-manager-version>
+    </properties>
+
+    <!--
+        To run the Chrome test either right click on 'MyFirstChromeTest'
+        and run it, or at the command line type:
+
+        `mvn test -Dtest=MyFirstChromeTest`
+
+        If you type `mvn test` or try to run all the tests you will
+        need to have all the drivers and browsers installed
+
+    -->
+
+    <dependencies>
+
+        <!--
+             You might need to update this number to the most recent version,
+             you can find it on the official SeleniumHQ.org download page
+            https://www.seleniumhq.org/download/
+        -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-webdriver-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdriver-manager-version}</version>
+            <scope>test</scope>
+        </dependency>
+        -->
+
+        <!-- adding the api and engine allow JUnit 5 to work -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+                Maven Surefire Plugin to run the Unit tests
+                https://maven.apache.org/surefire/maven-surefire-plugin/usage.html
+             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.report.version}</version>
+            </plugin>
+
+            <!--
+                Maven Site Plugin to create the HTML site
+                https://maven.apache.org/surefire/maven-surefire-plugin/usage.html
+             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- `mvn clean test site` to generate the junit html report-->
+    <reporting>
+        <plugins>
+            <!--
+                Maven Reports Plugin to generate the HTML reports
+                https://maven.apache.org/surefire/maven-surefire-report-plugin/index.html
+             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${maven.surefire.report.version}</version>
+            </plugin>
+
+        </plugins>
+    </reporting>
+
+</project>
