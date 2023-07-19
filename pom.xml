@@ -24,7 +24,6 @@
 
         <!-- configure webdriver version -->
         <selenium-webdriver-version>4.10.0</selenium-webdriver-version>
-        <webdriver-manager-version>5.4.1</webdriver-manager-version>
     </properties>
 
     <!--
@@ -51,15 +50,6 @@
             <version>${selenium-webdriver-version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!--
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdriver-manager-version}</version>
-            <scope>test</scope>
-        </dependency>
-        -->
 
         <!-- adding the api and engine allow JUnit 5 to work -->
         <dependency>

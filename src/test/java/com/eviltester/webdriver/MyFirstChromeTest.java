@@ -1,6 +1,5 @@
 package com.eviltester.webdriver;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +14,6 @@ public class MyFirstChromeTest {
 
     @Test
     public void startWebDriver(){
-
-        //WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
         if(System.getenv().
