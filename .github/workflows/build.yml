@@ -21,8 +21,9 @@ jobs:
           java-version: 18
 
       - name: setup chrome
-        - uses: browser-actions/setup-chrome@v1
-        - run: chrome --version
+        uses: browser-actions/setup-chrome@v1
+        
+      - run: chrome --version
 
       - name: Test with Maven
         run: mvn test
