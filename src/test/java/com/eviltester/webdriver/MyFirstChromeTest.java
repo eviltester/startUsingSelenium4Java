@@ -19,10 +19,8 @@ public class MyFirstChromeTest {
         if(System.getenv().
                 getOrDefault("BROWSER_STATE","show").
                 equals("Headless")){
-            options.addArguments("headless");
+            options.addArguments("--headless");
         }
-
-        //options.addArguments("--remote-allow-origins=*");
 
         WebDriver driver = new ChromeDriver(options);
 
