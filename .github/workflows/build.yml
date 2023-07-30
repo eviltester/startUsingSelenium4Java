@@ -1,6 +1,8 @@
 name: build
 on:
   push:
+  schedule:
+    - cron: '0 1 * * 6' # weekly check that it still works
 
 env:
   BROWSER_STATE: Headless
@@ -26,4 +28,5 @@ jobs:
       - run: chrome --version
 
       - name: Test with Maven
+        working-directory: ./app
         run: mvn test
