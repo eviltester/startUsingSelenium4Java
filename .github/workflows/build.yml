@@ -28,5 +28,4 @@ jobs:
       - run: chrome --version
 
       - name: Test with Maven
-        working-directory: ./app
         run: mvn test
