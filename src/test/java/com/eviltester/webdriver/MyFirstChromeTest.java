@@ -2,6 +2,7 @@ package com.eviltester.webdriver;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,11 +25,12 @@ public class MyFirstChromeTest {
 
         WebDriver driver = new ChromeDriver(options);
 
-        driver.navigate().to("https://testpages.herokuapp.com");
+        driver.navigate().to("https://testpages.eviltester.com/styled/basic-web-page-test.html");
 
-        Assertions.assertTrue(
-                        driver.getTitle().startsWith("Selenium"),
-                        "title should start with Selenium");
+        Assertions.assertEquals(
+            driver.findElement(By.tagName("h1")).getText(),
+        "Basic Web Page Example"
+        );
 
         driver.close();
         driver.quit();
