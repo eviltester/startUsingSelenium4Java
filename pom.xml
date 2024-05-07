@@ -20,10 +20,10 @@
 
         <!-- to generate html junit reports for test phase -->
         <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
-        <maven.surefire.report.version>3.0.0-M4</maven.surefire.report.version>
+        <maven.surefire.report.version>3.0.0</maven.surefire.report.version>
 
         <!-- configure webdriver version -->
-        <selenium-webdriver-version>4.10.0</selenium-webdriver-version>
+        <selenium-webdriver-version>4.20.0</selenium-webdriver-version>
     </properties>
 
     <!--

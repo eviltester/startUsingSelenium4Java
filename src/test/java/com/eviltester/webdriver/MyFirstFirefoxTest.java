@@ -6,24 +6,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class MyFirstChromeTest {
+public class MyFirstFirefoxTest {
 
     /**
-     The following code is for the Chrome Driver.
+     The following code is for the Firefox Driver.
     */
 
     @Test
     public void startWebDriver(){
 
-        ChromeOptions options = new ChromeOptions();
+        FirefoxOptions options = new FirefoxOptions();
         if(System.getenv().
                 getOrDefault("BROWSER_STATE","show").
                 equals("Headless")){
             options.addArguments("--headless");
         }
 
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new FirefoxDriver(options);
 
         driver.navigate().to("https://testpages.eviltester.com/styled/basic-web-page-test.html");
 
@@ -32,7 +34,7 @@ public class MyFirstChromeTest {
         "Basic Web Page Example"
         );
 
-        //driver.close();
+        // driver.close();
         driver.quit();
     }
 
