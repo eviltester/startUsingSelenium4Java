@@ -15,12 +15,16 @@
         <junit.jupiter.version>5.6.2</junit.jupiter.version>
 
         <!-- configure the compiler via properties rather than plugin -->
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+
+        <!-- use maven surefire to run the tests -->
+        <maven.surefire.version>3.2.5</maven.surefire.version>
 
         <!-- to generate html junit reports for test phase -->
-        <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
-        <maven.surefire.report.version>3.0.0</maven.surefire.report.version>
+        <maven-site-plugin.version>4.0.0-M14</maven-site-plugin.version>
+        <maven.surefire.report.version>3.2.5</maven.surefire.report.version>
+
 
         <!-- configure webdriver version -->
         <selenium-webdriver-version>4.20.0</selenium-webdriver-version>
@@ -32,9 +36,7 @@
 
         `mvn test -Dtest=MyFirstChromeTest`
 
-        If you type `mvn test` or try to run all the tests you will
-        need to have all the drivers and browsers installed
-
+        If you type `mvn test` it will run all the tests.
     -->
 
     <dependencies>
@@ -75,7 +77,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.report.version}</version>
+                <version>${maven.surefire.version}</version>
             </plugin>
 
             <!--
@@ -87,10 +89,11 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>${maven-site-plugin.version}</version>
             </plugin>
+
         </plugins>
     </build>
 
-    <!-- `mvn clean test site` to generate the junit html report-->
+    <!-- `mvn clean test site` to generate the junit html report in ./target/site -->
     <reporting>
         <plugins>
             <!--
